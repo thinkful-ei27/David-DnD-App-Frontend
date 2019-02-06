@@ -6,11 +6,12 @@
   min-height: 180px;
 }
 .character-card-border {
-  background-color: rgb(24, 27, 15);
+  background-color: rgb(48, 16, 48);
   min-width: 150px;
   max-width: 200px;
   min-height: 185px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px gold solid;
 }
