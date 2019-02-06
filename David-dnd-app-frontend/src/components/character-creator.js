@@ -5,7 +5,15 @@ import {createCharacter} from '../actions/dashboard';
 
 class CharacterCreator extends Component {
   onSubmit(values) {
+    let newClassVal = values.Class;
+    let newRaceVal = values.race;
+    if (values.Class === "Random" || values.Class === undefined) {
+      newClassVal = this.getRandomClass()
+    }
 
+    if (values.race === "Random" || values.race === undefined) {
+      newRaceVal = this.getRandomRace();
+    }
     let Strength  = this.getRoll();
     let Dexterity = this.getRoll();
     let Constitution = this.getRoll();
@@ -14,8 +22,8 @@ class CharacterCreator extends Component {
     let Charisma = this.getRoll();
     let level = 1;
     let insertObject = {
-      characterClass: values.Class,
-      race: values.race,
+      characterClass: newClassVal,
+      race: newRaceVal,
       name: values.name,
       level,
       Strength,
@@ -28,6 +36,56 @@ class CharacterCreator extends Component {
     console.log("onSubmit values are: ", insertObject)
     return this.props.dispatch(createCharacter(insertObject))
   } 
+
+  getRandomClass() {
+    const classIndex = Math.floor(Math.random() * 12);
+    const classArray = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk","Paladin","Ranger", "Rouge", "Sorcerer", "Warlock", "Wizard"]
+    return classArray[classIndex]
+    }
+
+  getRandomRace() {
+    const raceIndex = Math.floor(Math.random() * 37);
+    const raceArray = [
+    "Aarakocra",
+    "Aasimar",
+    "Bugbear",
+    "Centaur",
+    "Changeling",
+    "Dragonborn",
+    "Dwarf",
+    "Elf",
+    "FearlTiefling",
+    "Firblog",
+    "Genasi",
+    "Gith",
+    "Gnome",
+    "Goblin",
+    "Goliath",
+    "Half-Elf",
+    "Halfing",
+    "Half-Orc",
+    "Hobgoblin",
+    "Human",
+    "Kalashtar",
+    "Kenku",
+    "Kobold",
+    "Lizardfolk",
+    "Loxodon",
+    "Minotaur",
+    "Orc",
+    "Shifter",
+    "SimicHybrid",
+    "Tabaxi",
+    "Tiefling",
+    "Tortle",
+    "Triton",
+    "Vedalken",
+    "Viashino",
+    "Lizardfolk",
+    "Yuan-tiPureblood"
+  ]
+  return raceArray[raceIndex]
+  }
   
   getRoll() {
     let value1 = Math.floor(Math.random() * 6 + 1);
@@ -49,7 +107,7 @@ class CharacterCreator extends Component {
             </Field>
             </label>
             <Field component={"select"} name={"Class"}>
-              <option value="Random">Random Class</option>
+              <option value="Random" selected="selected">Random Class</option>
               <option value="Barbarian">Barbarian</option>
               <option value="Bard">Bard</option>
               <option value="Cleric">Cleric</option>
@@ -64,7 +122,7 @@ class CharacterCreator extends Component {
               <option value="Wizard">Wizard</option>
             </Field>
             <Field component={"select"} name={"race"}>
-              <option value="Random">Random Race</option>
+              <option value="Random" selected="selected">Random Race</option>
               <option value="Aarakocra">Aarakocra</option>
               <option value="Aasimar">Aasimar</option>
               <option value="Bugbear">Bugbear</option>
