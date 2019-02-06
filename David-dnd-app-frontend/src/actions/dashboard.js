@@ -23,6 +23,12 @@ export const moveCharactersRight = () => ({
     type: MOVE_CHARACTERS_RIGHT,
 })
 
+export const CHANGE_INDEX = 'CHANGE_INDEX'
+export const changeIndex = (index) => ({
+  type: CHANGE_INDEX,
+  index
+})
+
 
 
 export const getCharactersFromDatabase = (authToken) => (dispatch, getState) => {

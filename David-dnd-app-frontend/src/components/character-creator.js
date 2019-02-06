@@ -107,7 +107,7 @@ class CharacterCreator extends Component {
             </Field>
             </label>
             <Field component={"select"} name={"Class"}>
-              <option value="Random" selected="selected">Random Class</option>
+              <option value="Random">Random Class</option>
               <option value="Barbarian">Barbarian</option>
               <option value="Bard">Bard</option>
               <option value="Cleric">Cleric</option>
@@ -122,7 +122,7 @@ class CharacterCreator extends Component {
               <option value="Wizard">Wizard</option>
             </Field>
             <Field component={"select"} name={"race"}>
-              <option value="Random" selected="selected">Random Race</option>
+              <option value="Random">Random Race</option>
               <option value="Aarakocra">Aarakocra</option>
               <option value="Aasimar">Aasimar</option>
               <option value="Bugbear">Bugbear</option>

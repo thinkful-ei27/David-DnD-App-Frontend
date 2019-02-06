@@ -5,8 +5,9 @@
   max-width: 180px;
   min-height: 180px;
 }
+
 .character-card-border {
-  background-color: rgb(48, 16, 48);
+  background-color: rgb(31, 7, 0);
   min-width: 150px;
   max-width: 200px;
   min-height: 185px;
@@ -14,4 +15,7 @@
   align-items: center;
   justify-content: center;
   border: 1px gold solid;
+}
+.selected {
+  background-color: gold;
 }

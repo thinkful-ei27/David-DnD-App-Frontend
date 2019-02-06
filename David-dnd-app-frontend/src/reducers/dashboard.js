@@ -2,13 +2,15 @@ import {
   CHARACTER_ERROR,
   GET_CHARACTERS,
   MOVE_CHARACTERS_LEFT,
-  MOVE_CHARACTERS_RIGHT 
+  MOVE_CHARACTERS_RIGHT,
+  CHANGE_INDEX
 } from '../actions/dashboard';
 
 const initialState = {
   characterArray:[],
   displayCharacters:[],
   index: 0,
+  indexSelected: -1000,
   error: null
 };
 
@@ -23,12 +25,18 @@ export default function reducer(state = initialState, action) {
     })
   } else if (action.type === MOVE_CHARACTERS_LEFT) {
     return Object.assign({}, state, {
-      index : (state.index - 1)
+      index : (state.index - 1),
+      indexSelected : (state.indexSelected + 1)
     })
   } else if (action.type === MOVE_CHARACTERS_RIGHT) {
     return Object.assign({}, state, {
-      index : (state.index + 1)
+      index : (state.index + 1),
+      indexSelected : (state.indexSelected - 1)
     })
+  } else if (action.type === CHANGE_INDEX) {
+    return Object.assign({}, state, {
+      indexSelected: action.index
+  });
   }
   return state;
 }

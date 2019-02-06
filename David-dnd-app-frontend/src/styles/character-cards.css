@@ -5,17 +5,15 @@
   border-radius: 10px 10px 10px 10px;
   display: flex;
   position: relative;
-  top: 125px;
+  top: 500px;
   margin: auto;
-  
-  
 }
 
 .scroll-left-box {
   width: 60px;
   height: 210px;
   border-radius: 10px 0px 0px 10px;
-  background-color: rgba(98, 55, 252, 0.589);
+  background-color: rgb(145, 24, 139);
   border: 1px gold solid;
 }
 
@@ -23,7 +21,7 @@
   width: 60px;
   height: 210px;
   border-radius: 0px 10px 10px 0px;
-  background-color: rgba(98, 55, 252, 0.589);
+  background-color: rgb(145, 24, 139);
   border: 1px gold solid;
 }
 

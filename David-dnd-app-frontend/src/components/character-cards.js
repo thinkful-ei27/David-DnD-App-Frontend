@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import '../styles/character-cards.css'
 import {
   moveCharactersLeft,
-  moveCharactersRight
+  moveCharactersRight,
+  changeIndex,
 } from '../actions/dashboard';
 
 class CharacterCards extends Component {
@@ -28,13 +29,16 @@ class CharacterCards extends Component {
   onMoveLeftClick() {
     if (this.hasPrevCharacter()) this.props.dispatch(moveCharactersLeft());
   }
+  changeSelected(index) {
+    return this.props.dispatch(changeIndex(index))
+  }
   render() {
     console.log(` Character Data: `, this.props.characterData)
     return (
       <div className="character-card-display">
         <div className="scroll-left-box" onClick={ () => this.onMoveLeftClick()}/>
-        {this.props.characterData.slice(this.props.index, this.props.index + 3).map(char => {
-          return <CharacterCard character={char}/>
+        {this.props.characterData.slice(this.props.index, this.props.index + 3).map( (char, index) => {
+          return <CharacterCard character={char} key={index} indexSelected={this.props.indexSelected} index={index} onCardClick={ () => this.changeSelected(index)}/>
         }
         )
       }
@@ -46,7 +50,8 @@ class CharacterCards extends Component {
 
 const mapStateToProps = state => ({
   characterData: state.dashboard.characterArray,
-  index : state.dashboard.index
+  index : state.dashboard.index,
+  indexSelected : state.dashboard.indexSelected
 });
 
 export default connect(mapStateToProps)(CharacterCards)
