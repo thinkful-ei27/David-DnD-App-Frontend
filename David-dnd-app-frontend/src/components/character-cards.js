@@ -8,11 +8,25 @@ import {
 } from '../actions/dashboard';
 
 class CharacterCards extends Component {
+  hasPrevCharacter() {
+    if (this.props.characterData.slice(this.props.index -1, this.props.index + 2).length === 3) {
+      return true
+    } else {
+      return false
+    }
+  }
+  hasNextCharacter() {
+    if (this.props.characterData.slice(this.props.index + 1, this.props.index + 4).length === 3) {
+      return true
+    } else {
+      return false
+    }
+  }
   onMoveRightClick() {
-    return this.props.dispatch(moveCharactersRight())
+    if (this.hasNextCharacter()) this.props.dispatch(moveCharactersRight());
   }
   onMoveLeftClick() {
-    return this.props.dispatch(moveCharactersLeft())
+    if (this.hasPrevCharacter()) this.props.dispatch(moveCharactersLeft());
   }
   render() {
     console.log(` Character Data: `, this.props.characterData)
