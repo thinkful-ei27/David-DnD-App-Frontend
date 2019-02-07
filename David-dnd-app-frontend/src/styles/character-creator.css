@@ -7,15 +7,6 @@
   flex-direction: column;
   justify-content: center;
   display: flex;
-  animation: 
-  stretch
-  4s
-  ease-out
-  0s
-  alternate
-  infinite
-  none
-  running;
 }
 
 .inner-form-box {

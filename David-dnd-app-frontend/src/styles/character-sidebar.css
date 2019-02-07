@@ -1,5 +1,5 @@
 .character-sidebar {
-  height: 230px;
+  min-height: 230px;
   width:567px;
   margin: auto;
   background-color: rgb(32, 10, 4);

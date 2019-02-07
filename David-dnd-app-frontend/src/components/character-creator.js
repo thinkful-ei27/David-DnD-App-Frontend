@@ -113,7 +113,7 @@ class CharacterCreator extends Component {
               <option value="Monk">Monk</option>
               <option value="Paladin">Paladin</option>
               <option value="Ranger">Ranger</option>
-              <option value="Rouge">Rouge</option>
+              <option value="Rogue">Rouge</option>
               <option value="Sorcerer">Sorcerer</option>
               <option value="Warlock">Warlock</option>
               <option value="Wizard">Wizard</option>
@@ -128,7 +128,7 @@ class CharacterCreator extends Component {
               <option value="Dragonborn">Dragonborn</option>
               <option value="Dwarf">Dwarf</option>
               <option value="Elf">Elf</option>
-              <option value="FearlTiefling">FearlTiefling</option>
+              <option value="FeralTiefling">FearlTiefling</option>
               <option value="Firblog">Firblog</option>
               <option value="Genasi">Genasi</option>
               <option value="Gith">Gith</option>
