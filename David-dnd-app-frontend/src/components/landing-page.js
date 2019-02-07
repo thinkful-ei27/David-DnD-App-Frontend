@@ -14,7 +14,7 @@ export function LandingPage(props) {
         <div className="home">
             <h2>Please Login</h2>
             <LoginForm />
-            <Link to="/register">Register</Link>
+            <Link to="/register" id="register-link">Register</Link>
         </div>
     );
 }

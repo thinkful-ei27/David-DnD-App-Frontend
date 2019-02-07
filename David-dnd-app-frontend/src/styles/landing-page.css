@@ -1,0 +1,13 @@
+#register-link {
+  color: gold;
+  position: relative;
+  top: 15px;
+  font-size: 30px;
+}
+.home {
+  width: 174px;
+  height: 164px;
+  margin: auto;
+  position: relative;
+  top: 20vh;
+}

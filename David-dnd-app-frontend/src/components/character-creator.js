@@ -102,10 +102,8 @@ class CharacterCreator extends Component {
       <div className="character-card-form-box">
         <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} className="inner-form-box">
           <div className="flex-box-div">
-            <label>Enter a Name:
-            <Field component={"input"} name={"name"}>
+            <Field component={"input"} name={"name"} placeholder={"Enter a name"}>
             </Field>
-            </label>
             <Field component={"select"} name={"Class"}>
               <option value="Random">Random Class</option>
               <option value="Barbarian">Barbarian</option>

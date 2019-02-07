@@ -4,9 +4,8 @@
   background-color: rgba(90, 90, 90, 0.548);
   border-radius: 10px 10px 10px 10px;
   display: flex;
-  position: relative;
-  top: 500px;
   margin: auto;
+  position: relative;
 }
 
 .scroll-left-box {
