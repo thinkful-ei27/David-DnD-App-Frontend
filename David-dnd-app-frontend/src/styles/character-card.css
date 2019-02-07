@@ -43,3 +43,9 @@
   none
   running;
 }
+
+.sideBar {
+  min-width: 130px;
+  max-width: 120px;
+  min-height: 180px;
+}

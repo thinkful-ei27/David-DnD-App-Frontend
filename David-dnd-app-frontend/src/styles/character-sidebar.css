@@ -1,0 +1,13 @@
+.character-sidebar {
+  width: 20vw;
+  height: 100vh;
+  background-color: rgb(145, 24, 139);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  border: outset 10px rgb(76, 0, 199);
+}

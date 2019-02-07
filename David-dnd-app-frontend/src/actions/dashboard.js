@@ -24,9 +24,10 @@ export const moveCharactersRight = () => ({
 })
 
 export const CHANGE_INDEX = 'CHANGE_INDEX'
-export const changeIndex = (index) => ({
+export const changeIndex = (index, character) => ({
   type: CHANGE_INDEX,
-  index
+  index,
+  character
 })
 
 

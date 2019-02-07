@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CharacterCard from './character-card'
 import {connect} from 'react-redux';
+import CharacterCard from './character-card'
 import '../styles/character-cards.css'
 import {
   moveCharactersLeft,
@@ -29,17 +29,16 @@ class CharacterCards extends Component {
   onMoveLeftClick() {
     if (this.hasPrevCharacter()) this.props.dispatch(moveCharactersLeft());
   }
-  changeSelected(index) {
-    return this.props.dispatch(changeIndex(index))
+  changeSelected(index, character) {
+    return this.props.dispatch(changeIndex(index, character))
   }
   render() {
-    let clicked;
     console.log(` Character Data: `, this.props.characterData)
     return (
       <div className="character-card-display">
         <div className="scroll-left-box" onClick={ () => this.onMoveLeftClick()}/>
         {this.props.characterData.slice(this.props.index, this.props.index + 3).map( (char, index) => {
-          return <CharacterCard character={char} key={index} indexSelected={this.props.indexSelected} index={index} onCardClick={ () => this.changeSelected(index)}/>
+          return <CharacterCard character={char} key={index} indexSelected={this.props.indexSelected} index={index} onCardClick={ () => this.changeSelected(index, char)}/>
         }
         )
       }

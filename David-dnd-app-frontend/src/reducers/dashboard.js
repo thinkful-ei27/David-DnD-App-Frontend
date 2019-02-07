@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   characterArray:[],
-  displayCharacters:[],
+  character:{},
   index: 0,
   indexSelected: -1000,
   error: null
@@ -35,7 +35,9 @@ export default function reducer(state = initialState, action) {
     })
   } else if (action.type === CHANGE_INDEX) {
     return Object.assign({}, state, {
-      indexSelected: action.index
+      indexSelected: action.index,
+      character: action.character
+
   });
   }
   return state;
