@@ -37,7 +37,7 @@ class RaceModifierCard extends Component {
         raceMod.raceWisMod = 1;
         break;
 
-      case "Changeling": //case 5 is a special case ----------------------------------------------------
+      case "Changeling": 
 
         const ranVal = Math.floor(Math.random() * 1)
         if (ranVal === 0) {
@@ -104,7 +104,7 @@ class RaceModifierCard extends Component {
         raceMod.raceConstMod = 1;
         break;
 
-      case "Half-Elf": //special one -----------------------------------------------------
+      case "Half-Elf": 
 
         raceMod.raceCharMod = 2;
 

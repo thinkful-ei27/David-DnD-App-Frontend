@@ -3,7 +3,8 @@ import {
   GET_CHARACTERS,
   MOVE_CHARACTERS_LEFT,
   MOVE_CHARACTERS_RIGHT,
-  CHANGE_INDEX
+  CHANGE_INDEX,
+  EDIT_CHARACTER_START
 } from '../actions/dashboard';
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   character:{},
   index: 0,
   indexSelected: -1000,
+  isEditCharacter:false,
   error: null
 };
 
@@ -38,6 +40,10 @@ export default function reducer(state = initialState, action) {
       indexSelected: action.index,
       character: action.character
 
+  })
+  } else if (action.type === EDIT_CHARACTER_START) {
+    return Object.assign({}, state, {
+      isEditCharacter : true
   });
   }
   return state;

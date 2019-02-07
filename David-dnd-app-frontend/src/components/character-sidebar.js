@@ -4,6 +4,7 @@ import '../styles/character-sidebar.css'
 import CharacterCard from './character-card'
 import ModifierCard from './modifierCard'
 import RaceModifierCard from './race-modifier-card'
+import EditCharacterCard from './edit-character-card'
 import '../styles/character-cards.css'
 class CharacterSidebar extends Component {
   hideSidebar() {
@@ -14,6 +15,7 @@ class CharacterSidebar extends Component {
           <div className="core-stat-modifiers">
             <ModifierCard character={this.props.character} />
             <RaceModifierCard character={this.props.character}/>
+            <EditCharacterCard character={this.props.character} />
         </div>
         </div>
       )

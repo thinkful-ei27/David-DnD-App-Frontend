@@ -30,6 +30,29 @@ export const changeIndex = (index, character) => ({
   character
 })
 
+export const EDIT_CHARACTER_START = 'EDIT_CHARACTER_START';
+export const editCharacterFrontend = () => ({
+  type: EDIT_CHARACTER_START,
+});
+
+export const editCharacterBackend = (character, dispatch) => {
+  dispatch(editCharacterFrontend(character));
+  return (
+    fetch(`${API_BASE_URL}/api/characters/${character}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(character)
+    })
+    .then( (res) => {
+      console.log(res);
+      dispatch(GET_CHARACTERS)
+    })
+  )
+}
+
+
 
 
 export const getCharactersFromDatabase = (authToken) => (dispatch, getState) => {
