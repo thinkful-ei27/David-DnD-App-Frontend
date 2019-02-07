@@ -1,5 +1,7 @@
 .character-sidebar {
   height: 230px;
+  min-width: 567px;
+  margin: auto;
   background-color: rgb(32, 10, 4);
   position: static;
   display: flex;

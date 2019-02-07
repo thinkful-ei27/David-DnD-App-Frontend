@@ -1,9 +1,6 @@
 .dashboard {
   display: flex;
-  border: 1px solid black;
   margin: auto;
-  height: 90vh;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: column;
 }
