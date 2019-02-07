@@ -9,6 +9,7 @@ class CharacterCard extends Component {
       return (
         <div className="sideBar">
           <div className={`character-card select`}>
+            <p>
             Name: {this.props.character.name} <br></br>
             Class : {this.props.character.characterClass} <br></br>
             Race : {this.props.character.race} <br></br>
@@ -19,6 +20,7 @@ class CharacterCard extends Component {
             Intelligence: {this.props.character.Intelligence} <br></br>
             Wisdom: {this.props.character.Wisdom} <br></br>
             Charisma:{this.props.character.Charisma} <br></br>
+            </p>
           </div>
         </div>
       );
@@ -27,6 +29,7 @@ class CharacterCard extends Component {
       return (
         <div className="character-card-border selected">
           <div className={`character-card select`}>
+            <p>
             Name: {this.props.character.name} <br></br>
             Class : {this.props.character.characterClass} <br></br>
             Race : {this.props.character.race} <br></br>
@@ -37,6 +40,7 @@ class CharacterCard extends Component {
             Intelligence: {this.props.character.Intelligence} <br></br>
             Wisdom: {this.props.character.Wisdom} <br></br>
             Charisma:{this.props.character.Charisma} <br></br>
+            </p>
           </div>
         </div>
       ); 

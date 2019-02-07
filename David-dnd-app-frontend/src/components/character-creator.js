@@ -101,7 +101,6 @@ class CharacterCreator extends Component {
     return (
       <div className="character-card-form-box">
         <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))} className="inner-form-box">
-          <div className="flex-box-div">
             <Field component={"input"} name={"name"} placeholder={"Enter a name"}>
             </Field>
             <Field component={"select"} name={"Class"}>
@@ -160,8 +159,6 @@ class CharacterCreator extends Component {
               <option value="Yuan-tiPureblood">Yuan-tiPureblood</option>
             </Field>
             <button type="submit" className="submit-button">Create Character</button>
-            </div>
-
         </form>
       </div>
     );

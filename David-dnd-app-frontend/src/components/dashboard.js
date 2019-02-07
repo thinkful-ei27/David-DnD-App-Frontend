@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import CharacterSidebar from './character-sidebar';
 import CharacterCards from './character-cards';
-//import SpellSidebar from './spell-siderbar';
+import '../styles/dashboard.css'
 import CharacterCreator from './character-creator';
 
 class Dashboard extends Component {
   render() {
     return (
-   <div>
+   <div className="dashboard">
      <CharacterCreator/>
-     <CharacterCards/>
      <CharacterSidebar/>
+     <CharacterCards/>
    </div>
     );
   }
