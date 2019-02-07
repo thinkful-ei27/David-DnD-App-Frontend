@@ -5,20 +5,28 @@ import CharacterCard from './character-card'
 import ModifierCard from './modifierCard'
 import '../styles/character-cards.css'
 class CharacterSidebar extends Component {
+  hideModiferCard() {
+    if (this.props.shouldShow) {
+      return (
+        <div className="character-sidebar">
+          <CharacterCard character={this.props.character} sideBar={true}/>
+          <div className="core-stat-modifiers">
+              <ModifierCard character={this.props.character} />
+        </div>
+        </div>
+      )
+    } else {
+      return <p></p>
+    }
+  }
   render() {
-    return (
-      <div className="character-sidebar">
-        <CharacterCard character={this.props.character} sideBar={true}/>
-        <div className="core-stat-modifiers">
-            <ModifierCard character={this.props.character} />
-      </div>
-      </div>
-    );
+    return (<div>{this.hideModiferCard()}</div>);
   }
 }
 
 const mapStateToProps = state => ({
-  character: state.dashboard.character
+  character: state.dashboard.character,
+  shouldShow: (state.dashboard.indexSelected !== -1000)
 });
 
 export default connect(mapStateToProps)(CharacterSidebar);
