@@ -7,8 +7,8 @@ class CharacterCard extends Component {
   render() {
     if (this.props.index === this.props.indexSelected) {
       return (
-        <div className="character-card-border selected" onClick={console.log("Made it")}>
-          <div className={`character-card`}>
+        <div className="character-card-border selected">
+          <div className={`character-card select`}>
             Name: {this.props.character.name} <br></br>
             Class : {this.props.character.characterClass} <br></br>
             Race : {this.props.character.race} <br></br>

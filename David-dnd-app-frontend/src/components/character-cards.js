@@ -33,6 +33,7 @@ class CharacterCards extends Component {
     return this.props.dispatch(changeIndex(index))
   }
   render() {
+    let clicked;
     console.log(` Character Data: `, this.props.characterData)
     return (
       <div className="character-card-display">
