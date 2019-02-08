@@ -34,6 +34,11 @@ class CharacterCards extends Component {
   }
   render() {
     console.log(` Character Data: `, this.props.characterData)
+    const outputArray = this.props.characterData.slice(this.props.index, this.props.index + 3)
+    console.log('index: ', this.props.index);
+    console.log('indexSelected', this.props.indexSelected)
+    console.log('outputArray', outputArray)
+
     return (
       <div className="character-card-display">
         <div className="scroll-left-box" onClick={ () => this.onMoveLeftClick()}/>

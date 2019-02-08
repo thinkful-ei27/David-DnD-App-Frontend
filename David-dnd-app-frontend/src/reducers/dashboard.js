@@ -11,6 +11,7 @@ const initialState = {
   characterArray:[],
   character:{},
   indexSelected: -1000,
+  index: 0,
   isEditCharacter:false,
   error: null
 };

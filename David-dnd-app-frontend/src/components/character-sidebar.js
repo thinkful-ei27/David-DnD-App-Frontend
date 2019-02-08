@@ -7,7 +7,7 @@ import RaceModifierCard from './race-modifier-card'
 import EditCharacterCard from './edit-character-card'
 import '../styles/character-cards.css'
 class CharacterSidebar extends Component {
-  hideSidebar() {
+  showSidebar() {
     if (this.props.shouldShow) {
       return (
         <div className="character-sidebar">
@@ -25,14 +25,20 @@ class CharacterSidebar extends Component {
   }
 
   render() {
-    return (
-      <div className="character-sidebar">
-        <CharacterCard character={this.props.character} sideBar={true}/>
-        <div className="core-stat-modifiers">
+    if (this.props.shouldShow) {
+      return (
+        <div className="character-sidebar">
+          <CharacterCard character={this.props.character} sideBar={true}/>
+          <div className="core-stat-modifiers">
             <ModifierCard character={this.props.character} />
+            <RaceModifierCard character={this.props.character}/>
+            <EditCharacterCard character={this.props.character} />
         </div>
-      </div>
-    );
+        </div>
+      )
+    } else {
+      return <p></p>
+    }
   }
 }
 
