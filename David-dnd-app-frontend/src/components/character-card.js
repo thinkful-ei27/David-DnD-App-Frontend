@@ -5,9 +5,9 @@ import '../styles/character-card.css'
 
 
 class CharacterCard extends Component {
-  editCharacter() {
-    return this.props.dispatch(editCharacterFrontend())
-  }
+  // editCharacter() {
+  //   return this.props.dispatch(editCharacterFrontend())
+  // }
   
   render() {
     if (this.props.sideBar) {
@@ -70,8 +70,5 @@ class CharacterCard extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  character: state.dashboard.character,
-});
 
-export default connect(mapStateToProps)(CharacterCard);
+export default CharacterCard;

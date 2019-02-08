@@ -23,8 +23,16 @@ class CharacterSidebar extends Component {
       return <p></p>
     }
   }
+
   render() {
-    return (<div>{this.hideSidebar()}</div>);
+    return (
+      <div className="character-sidebar">
+        <CharacterCard character={this.props.character} sideBar={true}/>
+        <div className="core-stat-modifiers">
+            <ModifierCard character={this.props.character} />
+        </div>
+      </div>
+    );
   }
 }
 
@@ -32,5 +40,6 @@ const mapStateToProps = state => ({
   character: state.dashboard.character,
   shouldShow: (state.dashboard.indexSelected > -5)
 });
+
 
 export default connect(mapStateToProps)(CharacterSidebar);

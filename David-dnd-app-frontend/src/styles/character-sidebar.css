@@ -1,6 +1,11 @@
 .character-sidebar {
+<<<<<<< HEAD
   min-height: 230px;
   width:568px;
+=======
+  height: 230px;
+  min-width: 567px;
+>>>>>>> parent of f6d1706... push
   margin: auto;
   background-color: rgb(32, 10, 4);
   position: static;

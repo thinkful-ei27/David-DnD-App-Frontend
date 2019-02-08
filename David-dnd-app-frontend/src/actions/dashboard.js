@@ -35,19 +35,21 @@ export const editCharacterFrontend = () => ({
   type: EDIT_CHARACTER_START,
 });
 
-export const editCharacterBackend = (character, dispatch) => {
+export const editCharacterBackend = (character) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
   dispatch(editCharacterFrontend(character));
+  console.log(character)
   return (
-    fetch(`${API_BASE_URL}/api/characters/${character}`, {
+    fetch(`${API_BASE_URL}/characters/${character.id}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+          Authorization: `Bearer ${authToken}`
       },
       body: JSON.stringify(character)
     })
     .then( (res) => {
-      console.log(res);
-      dispatch(GET_CHARACTERS)
+       dispatch(getCharactersFromDatabase())
     })
   )
 }

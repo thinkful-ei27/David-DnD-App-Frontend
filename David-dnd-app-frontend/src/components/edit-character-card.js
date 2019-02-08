@@ -8,19 +8,21 @@ import '../styles/modifier-card.css'
 
 class EditCharacterCard extends Component {
   onSubmit(character) {
-    return this.props.dispatch(editCharacterBackend(character))
+    console.log(this.props.character.id)
+    character.id = this.props.character.id;
+    // return this.props.dispatch(editCharacterBackend(character))
   }
   
   render() {
     if (this.props.shouldShow) {
       return (
         <form className="modifier-card" onSubmit={this.props.handleSubmit(character => this.onSubmit(character))}>
-          <Field name="strength-input" type="number" />
-          <Field name="dexterity-input" type="number" />
-          <Field name="constitution-input" type="number" />
-          <Field name="intelligence-input" type="number" />
-          <Field name="wisdom-input" type="number" />
-          <Field name="charisma-input" type="number" />
+          <Field name="Strength" component="input" type="number" />
+          <Field name="Dexterity" component="input" type="number" />
+          <Field name="Constitution" component="input" type="number" />
+          <Field name="Intelligence" component="input" type="number" />
+          <Field name="Wisdom" component="input" type="number" />
+          <Field name="Charisma" component="input" type="number" />
           <input type="submit"/>
         </form>
       );
@@ -34,5 +36,4 @@ const mapStateToProps = state => ({
   character: state.dashboard.character,
   shouldShow: state.dashboard.isEditCharacter
 });
-
-export default connect(mapStateToProps)(EditCharacterCard);
+export default reduxForm({form : 'Edit-Character'})(connect(mapStateToProps)(EditCharacterCard))

@@ -10,7 +10,6 @@ import {
 const initialState = {
   characterArray:[],
   character:{},
-  index: 0,
   indexSelected: -1000,
   isEditCharacter:false,
   error: null
