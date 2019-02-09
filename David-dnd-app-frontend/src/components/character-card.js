@@ -5,9 +5,9 @@ import '../styles/character-card.css'
 
 
 class CharacterCard extends Component {
-  // editCharacter() {
-  //   return this.props.dispatch(editCharacterFrontend())
-  // }
+   editCharacter() {
+     return this.props.dispatch(editCharacterFrontend())
+   }
   
   render() {
     if (this.props.sideBar) {
@@ -71,4 +71,4 @@ class CharacterCard extends Component {
 }
 
 
-export default CharacterCard;
+export default connect()(CharacterCard);

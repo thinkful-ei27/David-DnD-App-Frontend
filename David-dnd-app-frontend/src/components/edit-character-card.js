@@ -10,21 +10,29 @@ class EditCharacterCard extends Component {
   onSubmit(character) {
     console.log(this.props.character.id)
     character.id = this.props.character.id;
-    // return this.props.dispatch(editCharacterBackend(character))
+    return this.props.dispatch(editCharacterBackend(character))
   }
   
   render() {
     if (this.props.shouldShow) {
       return (
         <form className="modifier-card" onSubmit={this.props.handleSubmit(character => this.onSubmit(character))}>
+          <label>Strength</label>
           <Field name="Strength" component="input" type="number" />
+          <label>Dexterity</label>
           <Field name="Dexterity" component="input" type="number" />
+          <label>Constitution</label>
           <Field name="Constitution" component="input" type="number" />
+          <label>Intelligence</label>
           <Field name="Intelligence" component="input" type="number" />
+          <label>Wisdom</label>
           <Field name="Wisdom" component="input" type="number" />
+          <label>Charisma</label>
           <Field name="Charisma" component="input" type="number" />
+          
           <input type="submit"/>
         </form>
+
       );
     } else {
       return <div></div>
@@ -36,4 +44,5 @@ const mapStateToProps = state => ({
   character: state.dashboard.character,
   shouldShow: state.dashboard.isEditCharacter
 });
-export default reduxForm({form : 'Edit-Character'})(connect(mapStateToProps)(EditCharacterCard))
+const connectedForm = reduxForm({form : 'Edit-Character'})(EditCharacterCard)
+export default (connect(mapStateToProps)(connectedForm))
