@@ -8,6 +8,7 @@ import {
   EDIT_CHARACTER_END,
   HIDE_CHARACTERS,
   SELECT_NEW_CHARACTER,
+  UPDATE_CHARACTER
 } from '../actions/dashboard';
 
 const initialState = {
@@ -21,9 +22,9 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   if (action.type === CHARACTER_ERROR) {
-      return Object.assign({}, state, {
-          error: action.error
-      });
+    return Object.assign({}, state, {
+        error: action.error
+    });
   } else if (action.type === GET_CHARACTERS) {
     return Object.assign({}, state, {
       characterArray : action.characters,
@@ -42,20 +43,23 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       indexSelected: action.index,
       character: action.character
-
-  })
+    })
   } else if (action.type === EDIT_CHARACTER_START) {
     return Object.assign({}, state, {
       isEditCharacter : true
-  })
+    })
   } else if (action.type === EDIT_CHARACTER_END) {
     return Object.assign({}, state, {
       isEditCharacter : false
-  })  
- } else if (action.type === HIDE_CHARACTERS) {
+    })  
+  } else if (action.type === HIDE_CHARACTERS) {
     return Object.assign({}, state, {
       indexSelected : -1000
-  })
+    })
+  } else if (action.type === UPDATE_CHARACTER) {
+      return Object.assign({}, state, {
+        character : action.character
+    })
   } else if (action.type === SELECT_NEW_CHARACTER) {
     let newIndex;
     let newIndexSelected;
@@ -79,7 +83,8 @@ export default function reducer(state = initialState, action) {
     }
     return Object.assign({}, state, {
       indexSelected: newIndexSelected,
-      index:  newIndex
+      index:  newIndex,
+      character: action.character
     })
   }
   return state;

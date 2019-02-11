@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, combineReducers} from 'redux';
+import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import {loadAuthToken} from './local-storage';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import authReducer from './reducers/auth';
 import dashboardReducer from './reducers/dashboard'
 
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //import new reducer
 const store = createStore(
     combineReducers({
@@ -14,7 +14,7 @@ const store = createStore(
         auth: authReducer,
         dashboard: dashboardReducer
     }),
-    applyMiddleware(thunk)
+    composeEnhancers(applyMiddleware(thunk))
 );
 const authToken = loadAuthToken();
 if (authToken) {

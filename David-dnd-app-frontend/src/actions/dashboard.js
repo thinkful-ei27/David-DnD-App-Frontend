@@ -14,8 +14,9 @@ export const getCharacters = (characters) => ({
 })
 
 export const SELECT_NEW_CHARACTER = 'SELECT_NEW_CHARACTER'
-export const selectNewCharacter = () => ({
-  type: SELECT_NEW_CHARACTER
+export const selectNewCharacter = (character) => ({
+  type: SELECT_NEW_CHARACTER,
+  character,
 })
 
 export const MOVE_CHARACTERS_LEFT = 'MOVE_CHARACTERS_LEFT'
@@ -57,6 +58,12 @@ export const deleteCharacterIndex = () => ({
   type: DELETE_CHARACTER_INDEX
 })
 
+export const UPDATE_CHARACTER = 'UPDATE_CHARACTER';
+export const updateCharacter = (character) => ({
+  type: UPDATE_CHARACTER,
+  character
+})
+
 
 
 
@@ -74,6 +81,7 @@ export const editCharacterBackend = (character) => (dispatch, getState) => {
     })
     .then( (res) => {
        dispatch(getCharactersFromDatabase())
+       dispatch(updateCharacter(character))
        dispatch(editCharacterEnd())
     })
   )
@@ -130,10 +138,9 @@ export const createCharacter = (characterObject) => (dispatch, getState) => {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => {
+          console.log("Response is: ", res)
           dispatch(getCharactersFromDatabase());
-        })
-        .then(res => {
-          dispatch(selectNewCharacter());
+          dispatch(selectNewCharacter(characterObject));
         })
         .catch(err => {
           dispatch(CharacterError(err));
