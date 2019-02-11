@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Field, reduxForm } from 'redux-form'
 import {editCharacterBackend} from '../actions/dashboard'
-import {deleteCharacter} from '../actions/dashboard'
 import '../styles/modifier-card.css'
 
 

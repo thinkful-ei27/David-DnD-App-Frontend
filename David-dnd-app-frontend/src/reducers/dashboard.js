@@ -6,7 +6,8 @@ import {
   CHANGE_INDEX,
   EDIT_CHARACTER_START,
   EDIT_CHARACTER_END,
-  HIDE_CHARACTERS
+  HIDE_CHARACTERS,
+  SELECT_NEW_CHARACTER,
 } from '../actions/dashboard';
 
 const initialState = {
@@ -54,7 +55,32 @@ export default function reducer(state = initialState, action) {
  } else if (action.type === HIDE_CHARACTERS) {
     return Object.assign({}, state, {
       indexSelected : -1000
-  });
+  })
+  } else if (action.type === SELECT_NEW_CHARACTER) {
+    let newIndex;
+    let newIndexSelected;
+    if (state.characterArray.length > 3) {
+      newIndex = state.characterArray.length - 2
+      newIndexSelected = 2
+    } 
+     else if (state.characterArray.length === 3) {
+      newIndex = 1
+      newIndexSelected = 2
+    }
+      else if ((state.characterArray.length === 2)) {
+      newIndex = 0;
+      newIndexSelected = 2;
+    } else if ((state.characterArray.length === 1 )) {
+      newIndex = 0;
+      newIndexSelected = 1;
+    } else if ((state.characterArray.length === 0 )) {
+      newIndex = 0
+      newIndexSelected = 0
+    }
+    return Object.assign({}, state, {
+      indexSelected: newIndexSelected,
+      index:  newIndex
+    })
   }
   return state;
 }

@@ -52,13 +52,17 @@ export const editCharacterEnd = () => ({
   type: EDIT_CHARACTER_END,
 });
 
+export const DELETE_CHARACTER_INDEX = 'DELETE_CHARACTER_INDEX';
+export const deleteCharacterIndex = () => ({
+  type: DELETE_CHARACTER_INDEX
+})
+
 
 
 
 export const editCharacterBackend = (character) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(editCharacterFrontend(character));
-  console.log(character)
   return (
     fetch(`${API_BASE_URL}/characters/${character.id}`, {
       method: 'PUT',
@@ -127,6 +131,9 @@ export const createCharacter = (characterObject) => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => {
           dispatch(getCharactersFromDatabase());
+        })
+        .then(res => {
+          dispatch(selectNewCharacter());
         })
         .catch(err => {
           dispatch(CharacterError(err));
