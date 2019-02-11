@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Field, reduxForm } from 'redux-form'
 import {editCharacterBackend} from '../actions/dashboard'
+import {deleteCharacter} from '../actions/dashboard'
 import '../styles/modifier-card.css'
 
 
@@ -12,10 +13,13 @@ class EditCharacterCard extends Component {
     character.id = this.props.character.id;
     return this.props.dispatch(editCharacterBackend(character))
   }
+
+
   
   render() {
     if (this.props.shouldShow) {
       return (
+        <div>
         <form className="modifier-card" onSubmit={this.props.handleSubmit(character => this.onSubmit(character))}>
           <label>Strength</label>
           <Field name="Strength" component="input" type="number" />
@@ -29,9 +33,9 @@ class EditCharacterCard extends Component {
           <Field name="Wisdom" component="input" type="number" />
           <label>Charisma</label>
           <Field name="Charisma" component="input" type="number" />
-          
-          <input type="submit"/>
+          <input type="submit"/> 
         </form>
+        </div>
 
       );
     } else {

@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import {editCharacterFrontend} from '../actions/dashboard'
+import {editCharacterFrontend, deleteCharacter, hideCharacters} from '../actions/dashboard'
 import {connect} from 'react-redux'
 import '../styles/character-card.css'
 
 
 class CharacterCard extends Component {
-   editCharacter() {
-     return this.props.dispatch(editCharacterFrontend())
-   }
+  editCharacter() {
+    return this.props.dispatch(editCharacterFrontend())
+  }
+  deleteCharacter(id) {
+    this.props.dispatch(hideCharacters())
+    return this.props.dispatch(deleteCharacter(id))
+  }
   
   render() {
     if (this.props.sideBar) {
@@ -26,6 +30,7 @@ class CharacterCard extends Component {
             Wisdom: {this.props.character.Wisdom} <br></br>
             Charisma:{this.props.character.Charisma} <br></br>
             <button onClick={ () => this.editCharacter()}>Edit Character</button>
+            <button onClick={ () => this.deleteCharacter(this.props.character.id)}>Delete Character</button>
             </p>
           </div>
         </div>

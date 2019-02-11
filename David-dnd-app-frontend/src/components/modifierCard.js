@@ -12,12 +12,12 @@ class ModifierCard extends Component {
     return (
       <p className="modifier-card">
         -=Core Stat Modifiers=-<br></br>
-        Strength-Mod: {this.calcModifer(this.props.character.Strength)} <br></br>
-        Dexterity-Mod: {this.calcModifer(this.props.character.Dexterity)} <br></br>
-        Constitution-Mod: {this.calcModifer(this.props.character.Charisma)} <br></br>
-        Intelligence-Mod: {this.calcModifer(this.props.character.Intelligence)} <br></br>
-        Wisdom-Mod: {this.calcModifer(this.props.character.Wisdom)} <br></br>
-        Charisma-Mod:{this.calcModifer(this.props.character.Charisma)} <br></br>
+        Strength: {this.calcModifer(this.props.character.Strength)} <br></br>
+        Dexterity: {this.calcModifer(this.props.character.Dexterity)} <br></br>
+        Constitution: {this.calcModifer(this.props.character.Charisma)} <br></br>
+        Intelligence: {this.calcModifer(this.props.character.Intelligence)} <br></br>
+        Wisdom: {this.calcModifer(this.props.character.Wisdom)} <br></br>
+        Charisma:{this.calcModifer(this.props.character.Charisma)} <br></br>
       </p>
     );
   }

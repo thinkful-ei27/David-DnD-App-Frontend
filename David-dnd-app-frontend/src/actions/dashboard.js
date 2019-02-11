@@ -13,6 +13,11 @@ export const getCharacters = (characters) => ({
   characters
 })
 
+export const SELECT_NEW_CHARACTER = 'SELECT_NEW_CHARACTER'
+export const selectNewCharacter = () => ({
+  type: SELECT_NEW_CHARACTER
+})
+
 export const MOVE_CHARACTERS_LEFT = 'MOVE_CHARACTERS_LEFT'
 export const moveCharactersLeft = () => ({
     type: MOVE_CHARACTERS_LEFT,
@@ -21,6 +26,11 @@ export const moveCharactersLeft = () => ({
 export const MOVE_CHARACTERS_RIGHT = 'MOVE_CHARACTERS_RIGHT'
 export const moveCharactersRight = () => ({
     type: MOVE_CHARACTERS_RIGHT,
+})
+
+export const HIDE_CHARACTERS = 'HIDE_CHARACTERS'
+export const hideCharacters = () => ({
+  type: HIDE_CHARACTERS
 })
 
 export const CHANGE_INDEX = 'CHANGE_INDEX'
@@ -35,6 +45,16 @@ export const editCharacterFrontend = () => ({
   type: EDIT_CHARACTER_START,
 });
 
+
+
+export const EDIT_CHARACTER_END = 'EDIT_CHARACTER_END';
+export const editCharacterEnd = () => ({
+  type: EDIT_CHARACTER_END,
+});
+
+
+
+
 export const editCharacterBackend = (character) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(editCharacterFrontend(character));
@@ -47,6 +67,23 @@ export const editCharacterBackend = (character) => (dispatch, getState) => {
           Authorization: `Bearer ${authToken}`
       },
       body: JSON.stringify(character)
+    })
+    .then( (res) => {
+       dispatch(getCharactersFromDatabase())
+       dispatch(editCharacterEnd())
+    })
+  )
+}
+
+export const deleteCharacter  = (id) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return (
+    fetch(`${API_BASE_URL}/characters/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+          Authorization: `Bearer ${authToken}`
+      }
     })
     .then( (res) => {
        dispatch(getCharactersFromDatabase())

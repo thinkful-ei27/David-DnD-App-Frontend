@@ -12,6 +12,7 @@ class RaceModifierCard extends Component {
       raceWisMod : 0,
       raceCharMod : 0
     }
+
     switch(race) {
 
       case "Aarakocra":
@@ -336,12 +337,12 @@ class RaceModifierCard extends Component {
     return (
       <p className="modifier-card">
         -=Race Stat Modifiers=-<br></br>
-        Strength-Mod: {raceMod.raceStrMod} <br></br>
-        Dexterity-Mod: {raceMod.raceDexMod} <br></br>
-        Constitution-Mod: {raceMod.raceConstMod} <br></br>
-        Intelligence-Mod: {raceMod.raceIntMod} <br></br>
-        Wisdom-Mod: {raceMod.raceWisMod} <br></br>
-        Charisma-Mod:{raceMod.raceCharMod} <br></br>
+        Strength: {raceMod.raceStrMod} <br></br>
+        Dexterity: {raceMod.raceDexMod} <br></br>
+        Constitution: {raceMod.raceConstMod} <br></br>
+        Intelligence: {raceMod.raceIntMod} <br></br>
+        Wisdom: {raceMod.raceWisMod} <br></br>
+        Charisma:{raceMod.raceCharMod} <br></br>
       </p>
     );
   }

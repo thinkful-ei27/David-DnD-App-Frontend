@@ -4,7 +4,9 @@ import {
   MOVE_CHARACTERS_LEFT,
   MOVE_CHARACTERS_RIGHT,
   CHANGE_INDEX,
-  EDIT_CHARACTER_START
+  EDIT_CHARACTER_START,
+  EDIT_CHARACTER_END,
+  HIDE_CHARACTERS
 } from '../actions/dashboard';
 
 const initialState = {
@@ -44,6 +46,14 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === EDIT_CHARACTER_START) {
     return Object.assign({}, state, {
       isEditCharacter : true
+  })
+  } else if (action.type === EDIT_CHARACTER_END) {
+    return Object.assign({}, state, {
+      isEditCharacter : false
+  })  
+ } else if (action.type === HIDE_CHARACTERS) {
+    return Object.assign({}, state, {
+      indexSelected : -1000
   });
   }
   return state;
