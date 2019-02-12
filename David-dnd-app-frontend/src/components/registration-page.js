@@ -15,13 +15,13 @@ export function RegistrationPage(props) {
         <div className="home">
             <h2>Register for Dungeons and Dragons Character Creator</h2>
             <RegistrationForm />
-            <Link to="/">Login</Link>
+            <Link to="/login"id="login-link">Login</Link>
         </div>
     );
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null 
 });
 
 export default connect(mapStateToProps)(RegistrationPage);

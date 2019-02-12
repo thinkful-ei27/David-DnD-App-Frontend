@@ -6,10 +6,10 @@ import '../styles/dashboard.css'
 import CharacterCreator from './character-creator';
 
 class Dashboard extends Component {
-  render() {
+  render() { //the top level component for dashboard
     return (
    <div className="dashboard">
-      <DashboardHeader history={this.props.history} />
+      <DashboardHeader history={this.props.history} /> {/*get history from router (which was on the parent) */}
       <CharacterCreator/>
       <CharacterSidebar/>
       <CharacterCards/>

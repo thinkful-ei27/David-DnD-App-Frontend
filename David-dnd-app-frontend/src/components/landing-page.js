@@ -12,9 +12,18 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h2>Please Login</h2>
-            <LoginForm />
-            <Link to="/register" id="register-link">Register</Link>
+            <h1>Dungeons and Dragons Character Creator</h1>
+            <div className="description-box">
+            <p>This app, can create characters on the fly
+                whether you're on a tablet, computer, or mobile device,
+                the website saves your characters to your login allowing you to access,
+                update, or create new characters from anywhere!
+            </p>
+            </div>
+            <div className="login-box">
+                <Link to="/login" id="login-link">Login</Link> <br/>
+                <Link to="/register" id="register-link">Register</Link>
+            </div>
         </div>
     );
 }

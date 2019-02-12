@@ -18,6 +18,13 @@
 .list-box {
   list-style-type: none;
   background-color: rgb(0, 119, 134);
+  animation: 
+  stretch
+  16s
+  alternate
+  infinite
+  none
+  running;
   width: 40vw;
   margin: auto;
   color: gold;

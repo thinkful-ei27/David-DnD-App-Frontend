@@ -11,11 +11,11 @@ class CharacterSidebar extends Component {
     if (this.props.shouldShow) {
       return (
         <div className="character-sidebar">
-          <CharacterCard character={this.props.character} sideBar={true}/> {/*this prop is what allows the edit character, and delete buttons to be on the character card*/}
+          <CharacterCard character={this.props.character} sideBar={true}/> {/*this sideBar prop is what allows the edit character, and delete buttons to be on the character card*/}
           <div className="core-stat-modifiers">
-            <ModifierCard character={this.props.character} />
-            <RaceModifierCard character={this.props.character}/>
-            <EditCharacterCard  />
+            <ModifierCard character={this.props.character} />{/*calculates bonuses, based on core stats */}
+            <RaceModifierCard character={this.props.character}/>{/*calculates bonuses, based on race */}
+            <EditCharacterCard  /> {/*Displays conditionally based on state inside the component*/}
         </div>
         </div>
       )

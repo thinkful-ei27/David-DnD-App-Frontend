@@ -44,7 +44,7 @@ class CharacterCards extends Component {
     console.log('indexSelected', this.props.indexSelected)
     console.log('outputArray', outputArray)
 
-    //I pass characters down through props here, so that actions and reducers can handle all the the math required to display the characters we want
+    //I pass characters down through props here, so that actions and reducers (I.e. state) can handle all the the math required to display the characters we want
     return (
       <div className="character-card-display">
         <div className="scroll-left-box" onClick={ () => this.onMoveLeftClick()}/>

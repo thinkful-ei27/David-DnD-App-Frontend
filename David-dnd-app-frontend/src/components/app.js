@@ -39,6 +39,7 @@ stopPeriodicRefresh() {
   render() {
     return (
    <div>
+     <Route exact path="/login" component={LoginForm}/>
      <Route exact path="/" component={LandingPage} />
      <Route exact path="/dashboard" component={Dashboard} />
      <Route exact path="/register" component={RegistrationPage} />

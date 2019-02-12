@@ -4,8 +4,8 @@ import {Field, reduxForm } from 'redux-form'
 import {editCharacterBackend} from '../actions/dashboard'
 import '../styles/modifier-card.css'
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => {
-  let inputElement = <input {...input} placeholder={label} type="number"/>;
+const renderField = ({ input, label, type, meta: { touched, error } }) => { //because a normal input type number, won't allow us to set initial values in jsx
+  let inputElement = <input {...input} placeholder={label} type="number"/>; //this allows the edit form's input values to be initially rendered with the values of the character
   return (
     <div>
       <label>{label}</label>
@@ -18,10 +18,10 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => {
 }
 
 class EditCharacterCard extends Component {
-  onSubmit(character) {
-    console.log(this.props.character.id)
-    character.id = this.props.character.id;
-    return this.props.dispatch(editCharacterBackend(character))
+  onSubmit(character) { 
+    console.log("character ID from state", this.props.character.id)
+    character.id = this.props.character.id; //grabs the character id from the character in state, and adds it on to the character object
+    return this.props.dispatch(editCharacterBackend(character)) //passes the new values as a put request to the backend to update the character object in the database
   }
 
 
@@ -58,9 +58,9 @@ class EditCharacterCard extends Component {
 
 
 const mapStateToProps = state => ({
-  character: state.dashboard.character,
-  shouldShow: state.dashboard.isEditCharacter,
-  initialValues: state.dashboard.character
+  character: state.dashboard.character, //character in state, used here, simply for it's id which is required to be passed for the put request in dispatch
+  shouldShow: state.dashboard.isEditCharacter, //a boolean to let the dashboard know if it should render the update character card (edit character button toggles it)
+  initialValues: state.dashboard.character //grabs the intial values of the character to set them to the values of the edit character form
 });
 const connectedForm = reduxForm({form : 'Edit-Character', enableReinitialize: true})(EditCharacterCard)
 export default (connect(mapStateToProps)(connectedForm))

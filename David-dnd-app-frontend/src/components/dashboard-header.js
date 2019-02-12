@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
 import {connect} from 'react-redux'
 import  {clearAuthToken} from '../local-storage'
 import {clearAuth} from '../actions/auth'
@@ -7,13 +7,13 @@ import {showModal} from '../actions/dashboard'
 import '../styles/dashboard-header.css'
 
 class DashboardHeader extends Component {
-  logOut() {
-    this.props.history.push("/")
-    clearAuthToken()
-    this.props.dispatch(clearAuth())
+  logOut() { 
+    this.props.history.push("/")//redirects to the landing page (which will redirect you to the login page)
+    clearAuthToken() //clears the token from local storage in the browser
+    this.props.dispatch(clearAuth()) //clears auth in state
   }
-  howToUse() {
-    this.props.dispatch(showModal())
+  howToUse() { 
+    this.props.dispatch(showModal()) //toggles(switchs true to false, or false to true) a tutorial modal, the modal renders conditionally based on this boolean
   }
   render() {
     if (this.props.showModal) {
@@ -44,7 +44,7 @@ class DashboardHeader extends Component {
   }
 }
 const mapStateToProps = state => ({
-  showModal: state.dashboard.showModal,
+  showModal: state.dashboard.showModal, //boolean value coming from state
 });
 
 export default connect(mapStateToProps)(DashboardHeader);

@@ -62,7 +62,7 @@ class CharacterCard extends Component {
       ); 
     }
     return (
-      <div className="character-card-border" onClick={this.props.onCardClick}> {/*This applys to the character cards inside of the manager at the bottom */}
+      <div className="character-card-border" onClick={this.props.onCardClick}> {/*This applys to the character cards inside of the manager*/}
         <div className={`character-card`}>
           Name: {this.props.character.name} <br></br>
           Class : {this.props.character.characterClass} <br></br>
