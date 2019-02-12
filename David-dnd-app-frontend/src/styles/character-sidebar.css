@@ -2,7 +2,6 @@
   min-height: 230px;
   width: 568px;
   margin: auto;
-  background-color: linear-gradient(217deg, rgb(76, 0, 97), rgba(255,0,0,0) 70.71%);
   position: static;
   display: flex;
   align-content: center;
@@ -11,3 +10,4 @@
 }
 
 
+ 

@@ -7,12 +7,12 @@ class CharacterCreator extends Component {
   onSubmit(values) {
     let newClassVal = values.Class;
     let newRaceVal = values.race;
-    if (values.Class === "Random" || values.Class === undefined) {
-      newClassVal = this.getRandomClass()
+    if (values.Class === "Random" || values.Class === undefined) { //if the box is never selected, it's undefined, so you gotta check for it
+      newClassVal = this.getRandomClass() //gets a random class
     }
 
     if (values.race === "Random" || values.race === undefined) {
-      newRaceVal = this.getRandomRace();
+      newRaceVal = this.getRandomRace(); //gets a random race
     }
     let Strength  = this.getRoll();
     let Dexterity = this.getRoll();
@@ -37,13 +37,13 @@ class CharacterCreator extends Component {
     return this.props.dispatch(createCharacter(insertObject))
   } 
 
-  getRandomClass() {
+  getRandomClass() { //randomly selects a class by getting a number 0-11, and selects the string at the array location to return the random class 
     const classIndex = Math.floor(Math.random() * 12);
     const classArray = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk","Paladin","Ranger", "Rouge", "Sorcerer", "Warlock", "Wizard"]
     return classArray[classIndex]
     }
 
-  getRandomRace() {
+  getRandomRace() {//randomly selects a race by getting a number 0-36, and selects the string at the array location to return the random race 
     const raceIndex = Math.floor(Math.random() * 37);
     const raceArray = [
     "Aarakocra",
@@ -87,7 +87,7 @@ class CharacterCreator extends Component {
   return raceArray[raceIndex]
   }
   
-  getRoll() {
+  getRoll() {//"rolls the dice" 5 times, and subtracts the smallest value, returning the random number for the core stat by DnD guidelines
     let value1 = Math.floor(Math.random() * 6 + 1);
     let value2 = Math.floor(Math.random() * 6 + 1);
     let value3 = Math.floor(Math.random() * 6 + 1);

@@ -8,13 +8,15 @@ import {
   EDIT_CHARACTER_END,
   HIDE_CHARACTERS,
   SELECT_NEW_CHARACTER,
-  UPDATE_CHARACTER
+  UPDATE_CHARACTER,
+  TOGGLE_MODAL
 } from '../actions/dashboard';
 
 const initialState = {
   characterArray:[],
   character:{},
   indexSelected: -1000,
+  showModal: false,
   index: 0,
   isEditCharacter:false,
   error: null
@@ -60,6 +62,10 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         character : action.character
     })
+  } else if (action.type === TOGGLE_MODAL) {
+    return Object.assign({}, state, {
+      showModal: !(state.showModal)
+  })
   } else if (action.type === SELECT_NEW_CHARACTER) {
     let newIndex;
     let newIndexSelected;

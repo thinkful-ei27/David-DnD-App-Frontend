@@ -35,6 +35,7 @@ stopPeriodicRefresh() {
 
     clearInterval(this.refreshInterval);
 }
+
   render() {
     return (
    <div>
@@ -44,6 +45,7 @@ stopPeriodicRefresh() {
    </div>
     );
   }
+  //Redirect's the webpage to a specific component based on the address in the browser
 }
 
 const mapStateToProps = state => ({
@@ -51,5 +53,4 @@ const mapStateToProps = state => ({
   loggedIn: (state.auth.currentUser !== null)
 });
 
-// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default withRouter(connect(mapStateToProps)(App));

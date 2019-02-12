@@ -11,7 +11,7 @@ class CharacterSidebar extends Component {
     if (this.props.shouldShow) {
       return (
         <div className="character-sidebar">
-          <CharacterCard character={this.props.character} sideBar={true}/>
+          <CharacterCard character={this.props.character} sideBar={true}/> {/*this prop is what allows the edit character, and delete buttons to be on the character card*/}
           <div className="core-stat-modifiers">
             <ModifierCard character={this.props.character} />
             <RaceModifierCard character={this.props.character}/>
@@ -26,8 +26,8 @@ class CharacterSidebar extends Component {
 }
 
 const mapStateToProps = state => ({
-  character: state.dashboard.character,
-  shouldShow: (state.dashboard.indexSelected > -5)
+  character: state.dashboard.character, //character that comes from state
+  shouldShow: (state.dashboard.indexSelected >= 0) //checks if there is a character selected in character-cards component 
 });
 
 

@@ -5,15 +5,19 @@ import '../styles/character-card.css'
 
 
 class CharacterCard extends Component {
-  editCharacter() {
-    return this.props.dispatch(editCharacterFrontend())
+  editCharacter() { 
+    return this.props.dispatch(editCharacterFrontend()) //a form box will pop out, allowing you to edit the character
   }
-  deleteCharacter(id) {
-    this.props.dispatch(hideCharacters())
-    return this.props.dispatch(deleteCharacter(id))
+  deleteCharacter(id) { 
+    this.props.dispatch(hideCharacters()) //De-selects the character card that gets deleted
+    return this.props.dispatch(deleteCharacter(id)) //delete's the character from the database with api call, and gets the new set of characters
   }
   
   render() {
+    //grabs character from state, instead of being passed from the parent
+    //I did it differently here for two reasons
+    //One, is becuase I needed to have the associated ID on the character Object to do api calls in the backend
+    //The second reason, is when the character is updated (after the edit-character-card form is submitted) it re-renders with the new stats
     console.log(this.props.stateCharacter)
     if (this.props.sideBar) {
       return (
@@ -37,10 +41,10 @@ class CharacterCard extends Component {
         </div>
       );
     }
-    if (this.props.index === this.props.indexSelected) {
+    if (this.props.index === this.props.indexSelected) { //This is what allows the card to light up when clicked
       return (
         <div className="character-card-border selected">
-          <div className={`character-card select`}>
+          <div className={`character-card select`}> {/*select gives the character card a different apearence*/}
             <p>
             Name: {this.props.character.name} <br></br>
             Class : {this.props.character.characterClass} <br></br>
@@ -58,7 +62,7 @@ class CharacterCard extends Component {
       ); 
     }
     return (
-      <div className="character-card-border" onClick={this.props.onCardClick}>
+      <div className="character-card-border" onClick={this.props.onCardClick}> {/*This applys to the character cards inside of the manager at the bottom */}
         <div className={`character-card`}>
           Name: {this.props.character.name} <br></br>
           Class : {this.props.character.characterClass} <br></br>
@@ -77,7 +81,7 @@ class CharacterCard extends Component {
 }
 
 const mapStateToProps = state => ({
-  stateCharacter: state.dashboard.character,
+  stateCharacter: state.dashboard.character, //character coming from state
 });
 
 
