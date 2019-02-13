@@ -69,24 +69,13 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === SELECT_NEW_CHARACTER) {
     let newIndex;
     let newIndexSelected;
-    if (state.characterArray.length > 3) {
+    if (state.characterArray.length >= 2) {
       newIndex = state.characterArray.length - 2
       newIndexSelected = 2
+   } else {
+      newIndex = 0;
+      newIndexSelected = state.characterArray.length;
     } 
-     else if (state.characterArray.length === 3) {
-      newIndex = 1
-      newIndexSelected = 2
-    }
-      else if ((state.characterArray.length === 2)) {
-      newIndex = 0;
-      newIndexSelected = 2;
-    } else if ((state.characterArray.length === 1 )) {
-      newIndex = 0;
-      newIndexSelected = 1;
-    } else if ((state.characterArray.length === 0 )) {
-      newIndex = 0
-      newIndexSelected = 0
-    }
     return Object.assign({}, state, {
       indexSelected: newIndexSelected,
       index:  newIndex,

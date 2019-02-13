@@ -73,7 +73,9 @@ export const showModal = () => ({
 
 export const editCharacterBackend = (character) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
+  dispatch(updateCharacter(character))
   dispatch(editCharacterFrontend(character));
+  dispatch(editCharacterEnd())
   return (
     fetch(`${API_BASE_URL}/characters/${character.id}`, {
       method: 'PUT',
@@ -83,10 +85,9 @@ export const editCharacterBackend = (character) => (dispatch, getState) => {
       },
       body: JSON.stringify(character)
     })
+    .then( (res) => res.json())
     .then( (res) => {
        dispatch(getCharactersFromDatabase())
-       dispatch(updateCharacter(character))
-       dispatch(editCharacterEnd())
     })
   )
 }
@@ -141,10 +142,11 @@ export const createCharacter = (characterObject) => (dispatch, getState) => {
         body: JSON.stringify(characterObject)
     })
         .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
         .then(res => {
           console.log("Response is: ", res)
           dispatch(getCharactersFromDatabase());
-          dispatch(selectNewCharacter(characterObject));
+          dispatch(selectNewCharacter(res));
         })
         .catch(err => {
           dispatch(CharacterError(err));
