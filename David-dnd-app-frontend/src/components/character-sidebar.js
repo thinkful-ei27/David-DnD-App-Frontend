@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import '../styles/character-sidebar.css'
 import CharacterCard from './character-card'
-import ModifierCard from './modifierCard'
+import ModifierCard from './modifier-card'
 import RaceModifierCard from './race-modifier-card'
 import EditCharacterCard from './edit-character-card'
 import '../styles/character-cards.css'
@@ -16,7 +16,7 @@ class CharacterSidebar extends Component {
             <ModifierCard character={this.props.character} />{/*calculates bonuses, based on core stats */}
             <RaceModifierCard character={this.props.character}/>{/*calculates bonuses, based on race */}
             <EditCharacterCard  /> {/*Displays conditionally based on state inside the component*/}
-        </div>
+          </div>
         </div>
       )
     } else {

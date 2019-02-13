@@ -50,9 +50,7 @@ class CharacterCards extends Component {
         <div className="scroll-left-box" onClick={ () => this.onMoveLeftClick()}/>
         {this.props.characterData.slice(this.props.index, this.props.index + 3).map( (char, index) => {
           return <CharacterCard character={char} key={index} indexSelected={this.props.indexSelected} index={index} onCardClick={ () => this.changeSelected(index, char)}/>
-        }
-        )
-      }
+        })}
         <div className="scroll-right-box" onClick={ () => this.onMoveRightClick()}/>
       </div>
     );
