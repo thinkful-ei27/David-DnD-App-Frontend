@@ -156,7 +156,7 @@ class CharacterCreator extends Component {
               <option value="Vedalken">Vedalken</option>
               <option value="Viashino">Viashino</option>
               <option value="Lizardfolk">Lizardfolk</option>
-              <option value="Yuan-tiPureblood">Yuan-tiPureblood</option>
+              <option value="Yuan-tiPureblood">Yuan-ti Pureblood</option>
             </Field>
             <button type="submit" className="submit-button">Create Character</button>
         </form>

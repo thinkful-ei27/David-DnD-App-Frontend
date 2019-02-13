@@ -32,17 +32,16 @@ class DashboardHeader extends Component {
       )
     }
     return (
-   <Router >
-     <div className="dashboard-header">
-       <button onClick={ () => this.logOut()}>Logout</button>
-       <button onClick={ () => this.howToUse()}>How Do I use this?</button>
-     </div>
-   </Router>
-   
-   
+      <Router >
+        <div className="dashboard-header">
+          <button onClick={ () => this.logOut()}>Logout</button>
+          <button onClick={ () => this.howToUse()}>How Do I use this?</button>
+        </div>
+      </Router>
     );
   }
 }
+
 const mapStateToProps = state => ({
   showModal: state.dashboard.showModal, //boolean value coming from state
 });

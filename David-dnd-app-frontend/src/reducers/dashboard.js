@@ -25,48 +25,58 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   if (action.type === CHARACTER_ERROR) {
     return Object.assign({}, state, {
-        error: action.error
+      error: action.error
     });
-  } else if (action.type === GET_CHARACTERS) {
+  } 
+  else if (action.type === GET_CHARACTERS) {
     return Object.assign({}, state, {
       characterArray : action.characters,
     })
-  } else if (action.type === MOVE_CHARACTERS_LEFT) {
+  } 
+  else if (action.type === MOVE_CHARACTERS_LEFT) {
     return Object.assign({}, state, {
       index : (state.index - 1),
       indexSelected : (state.indexSelected + 1)
     })
-  } else if (action.type === MOVE_CHARACTERS_RIGHT) {
+  } 
+  else if (action.type === MOVE_CHARACTERS_RIGHT) {
     return Object.assign({}, state, {
       index : (state.index + 1),
       indexSelected : (state.indexSelected - 1)
     })
-  } else if (action.type === CHANGE_INDEX) {
+  } 
+  else if (action.type === CHANGE_INDEX) {
     return Object.assign({}, state, {
       indexSelected: action.index,
       character: action.character
     })
-  } else if (action.type === EDIT_CHARACTER_START) {
+  } 
+  else if (action.type === EDIT_CHARACTER_START) {
     return Object.assign({}, state, {
       isEditCharacter : true
     })
-  } else if (action.type === EDIT_CHARACTER_END) {
+  } 
+  else if (action.type === EDIT_CHARACTER_END) {
     return Object.assign({}, state, {
       isEditCharacter : false
     })  
-  } else if (action.type === HIDE_CHARACTERS) {
+  } 
+  else if (action.type === HIDE_CHARACTERS) {
     return Object.assign({}, state, {
       indexSelected : -1000
     })
-  } else if (action.type === UPDATE_CHARACTER) {
+  } 
+  else if (action.type === UPDATE_CHARACTER) {
       return Object.assign({}, state, {
         character : action.character
     })
-  } else if (action.type === TOGGLE_MODAL) {
+  } 
+  else if (action.type === TOGGLE_MODAL) {
     return Object.assign({}, state, {
       showModal: !(state.showModal)
   })
-  } else if (action.type === SELECT_NEW_CHARACTER) {
+  } 
+  else if (action.type === SELECT_NEW_CHARACTER) {
     let newIndex;
     let newIndexSelected;
     if (state.characterArray.length >= 2) {
@@ -81,6 +91,6 @@ export default function reducer(state = initialState, action) {
       index:  newIndex,
       character: action.character
     })
-  }
+  } 
   return state;
 }

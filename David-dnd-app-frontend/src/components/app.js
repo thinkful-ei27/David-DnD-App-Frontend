@@ -9,32 +9,29 @@ import {connect} from 'react-redux';
 class App extends Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
-        // When we are logged in, refresh the auth token periodically
-        this.startPeriodicRefresh();
+      // When we are logged in, refresh the auth token periodically
+      this.startPeriodicRefresh();
     } else if (prevProps.loggedIn && !this.props.loggedIn) {
-        // Stop refreshing when we log out
-        this.stopPeriodicRefresh();
+      // Stop refreshing when we log out
+      this.stopPeriodicRefresh();
     }
-}
+  }
 
-componentWillUnmount() {
+  componentWillUnmount() {
     this.stopPeriodicRefresh();
-}
+  }
 
-startPeriodicRefresh() {
-    this.refreshInterval = setInterval(
-        () => this.props.dispatch(refreshAuthToken()),
-        60 * 60 * 1000 // One hour
-    );
-}
+  startPeriodicRefresh() {
+    // One hour
+    this.refreshInterval = setInterval(() => this.props.dispatch(refreshAuthToken()),60 * 60 * 1000);
+  }
 
-stopPeriodicRefresh() {
+  stopPeriodicRefresh() {
     if (!this.refreshInterval) {
-        return;
+      return;
     }
-
     clearInterval(this.refreshInterval);
-}
+  }
 
   render() {
     return (

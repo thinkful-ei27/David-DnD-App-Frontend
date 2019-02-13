@@ -81,13 +81,13 @@ export const editCharacterBackend = (character) => (dispatch, getState) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-          Authorization: `Bearer ${authToken}`
+        Authorization: `Bearer ${authToken}`
       },
       body: JSON.stringify(character)
     })
     .then( (res) => res.json())
     .then( (res) => {
-       dispatch(getCharactersFromDatabase())
+      dispatch(getCharactersFromDatabase())
     })
   )
 }
@@ -99,11 +99,11 @@ export const deleteCharacter  = (id) => (dispatch, getState) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-          Authorization: `Bearer ${authToken}`
+        Authorization: `Bearer ${authToken}`
       }
     })
     .then( (res) => {
-       dispatch(getCharactersFromDatabase())
+      dispatch(getCharactersFromDatabase())
     })
   )
 }
@@ -115,41 +115,42 @@ export const getCharactersFromDatabase = (authToken) => (dispatch, getState) => 
   if (!authToken) {
     authToken = getState().auth.authToken;
   }
-    return fetch(`${API_BASE_URL}/characters`, {
-        method: 'GET',
-        headers: {
-            // Provide our auth token as credentials
-            Authorization: `Bearer ${authToken}`
-        },
-    }).then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then((data) => dispatch(getCharacters(data)))
-    .catch(err => {
-      dispatch(CharacterError(err));
-    });
+  return fetch(`${API_BASE_URL}/characters`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
+    },
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then((data) => dispatch(getCharacters(data)))
+  .catch(err => {
+    dispatch(CharacterError(err));
+  });
 }
 
 export const createCharacter = (characterObject) => (dispatch, getState) => {
-    const authToken = getState().auth.authToken;
-    console.log("CharacterObject in post action: ",characterObject)
-    return fetch(`${API_BASE_URL}/characters`, {
-        method: 'POST',
-        headers: {
-            // Provide our auth token as credentials
-            Authorization: `Bearer ${authToken}`,
-            'content-type': 'application/json',
-        },
-        body: JSON.stringify(characterObject)
+  const authToken = getState().auth.authToken;
+  console.log("CharacterObject in post action: ",characterObject)
+  return fetch(`${API_BASE_URL}/characters`, {
+    method: 'POST',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(characterObject)
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(res => {
+      console.log("Response is: ", res)
+      dispatch(getCharactersFromDatabase());
+      dispatch(selectNewCharacter(res));
     })
-        .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
-        .then(res => {
-          console.log("Response is: ", res)
-          dispatch(getCharactersFromDatabase());
-          dispatch(selectNewCharacter(res));
-        })
-        .catch(err => {
-          dispatch(CharacterError(err));
-        });
+    .catch(err => {
+      dispatch(CharacterError(err));
+    });
 };
 

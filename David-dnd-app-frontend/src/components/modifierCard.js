@@ -4,7 +4,6 @@ import '../styles/modifier-card.css'
 
 class ModifierCard extends Component {
   calcModifer(initialStat) {
-    
     return Math.floor((initialStat - 10) / 2);
   }
   
@@ -22,6 +21,5 @@ class ModifierCard extends Component {
     );
   }
 }
-
 
 export default ModifierCard;

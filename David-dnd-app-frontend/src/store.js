@@ -9,18 +9,18 @@ import dashboardReducer from './reducers/dashboard'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //import new reducer
 const store = createStore(
-    combineReducers({
-        form: formReducer,
-        auth: authReducer,
-        dashboard: dashboardReducer
-    }),
-    composeEnhancers(applyMiddleware(thunk))
+  combineReducers({
+    form: formReducer,
+    auth: authReducer,
+    dashboard: dashboardReducer
+  }),
+  composeEnhancers(applyMiddleware(thunk))
 );
 const authToken = loadAuthToken();
 if (authToken) {
-    const token = authToken;
-    store.dispatch(setAuthToken(token));
-    store.dispatch(refreshAuthToken());
+  const token = authToken;
+  store.dispatch(setAuthToken(token));
+  store.dispatch(refreshAuthToken());
 }
 
 
