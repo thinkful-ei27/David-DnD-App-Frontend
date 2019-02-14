@@ -9,7 +9,8 @@ import {
   HIDE_CHARACTERS,
   SELECT_NEW_CHARACTER,
   UPDATE_CHARACTER,
-  TOGGLE_MODAL
+  TOGGLE_MODAL,
+  UPDATE_INDEX
 } from '../actions/dashboard';
 
 const initialState = {
@@ -49,6 +50,11 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       indexSelected: action.index,
       character: action.character
+    })
+  } 
+  else if (action.type === UPDATE_INDEX) {
+    return Object.assign({}, state, {
+      index: 0,
     })
   } 
   else if (action.type === EDIT_CHARACTER_START) {

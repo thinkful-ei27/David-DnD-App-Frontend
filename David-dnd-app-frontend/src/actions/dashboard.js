@@ -69,6 +69,10 @@ export const showModal = () => ({
   type: TOGGLE_MODAL
 })
 
+export const UPDATE_INDEX ='UPDATE_INDEX';
+export const updateIndex = () => ({
+  type: UPDATE_INDEX
+})
 
 
 export const editCharacterBackend = (character) => (dispatch, getState) => {
@@ -104,6 +108,9 @@ export const deleteCharacter  = (id) => (dispatch, getState) => {
     })
     .then( (res) => {
       dispatch(getCharactersFromDatabase())
+    })
+    .then( (res) => {
+      dispatch(updateIndex())
     })
   )
 }
