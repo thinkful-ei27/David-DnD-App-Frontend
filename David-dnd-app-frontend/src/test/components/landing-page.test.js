@@ -1,7 +1,7 @@
 import React from 'react';
-import LandingPage from '../components/landing-page'
+import LandingPage from '../../components/landing-page'
 import { shallow } from 'enzyme'
-import '../configure-tests'
+import './configure-tests'
 
 describe('<LandingPage /> Component', function() {
   it('Smoke test for LandingPage', () => {

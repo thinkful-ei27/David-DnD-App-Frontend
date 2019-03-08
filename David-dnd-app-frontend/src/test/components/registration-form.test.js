@@ -1,7 +1,7 @@
 import React from 'react';
-import RegistrationForm from '../components/registration-form'
+import RegistrationForm from '../../components/registration-form'
 import { shallow } from 'enzyme'
-import '../configure-tests'
+import './configure-tests'
 
 describe('<RegistrationForm /> Component', function() {
   it('Smoke test for RegistrationForm', () => {

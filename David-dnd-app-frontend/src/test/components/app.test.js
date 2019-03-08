@@ -1,7 +1,7 @@
 import React from 'react';
-import App from '../components/app'
+import App from '../../components/app'
 import { shallow } from 'enzyme'
-import '../configure-tests'
+import './configure-tests'
 
 describe('<App /> Component', function() {
   it('Smoke test for App', () => {

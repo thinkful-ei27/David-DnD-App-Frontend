@@ -1,7 +1,7 @@
 import React from 'react';
-import RaceModifierCard from '../components/race-modifier-card'
+import RaceModifierCard from '../../components/race-modifier-card'
 import { shallow } from 'enzyme'
-import '../configure-tests'
+import './configure-tests'
 
 describe('<RaceModifierCard /> Component', function() {
   it('Smoke test for RaceModifierCard', () => {

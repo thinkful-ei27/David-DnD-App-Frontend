@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 import {connect} from 'react-redux'
-import  {clearAuthToken} from '../local-storage'
+import  {clearAuthToken} from '../test/components/local-storage'
 import {clearAuth} from '../actions/auth'
 import {showModal} from '../actions/dashboard'
 import '../styles/dashboard-header.css'
