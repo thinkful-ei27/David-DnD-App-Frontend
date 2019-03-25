@@ -1,7 +1,7 @@
 import React from 'react';
-import LoginForm from '../components/login-form'
+import LoginForm from '../../components/login-form'
 import { shallow } from 'enzyme'
-import '../configure-tests'
+import './configure-tests'
 
 describe('<LoginForm /> Component', function() {
   it('Smoke test for LoginForm', () => {

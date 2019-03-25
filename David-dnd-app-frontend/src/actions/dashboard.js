@@ -1,4 +1,4 @@
-import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../test/components/config';
 import {normalizeResponseErrors} from './utils';
 
 export const CHARACTER_ERROR = 'CHARACTER_ERROR';

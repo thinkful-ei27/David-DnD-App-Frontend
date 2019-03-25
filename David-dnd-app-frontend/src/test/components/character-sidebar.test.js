@@ -1,7 +1,7 @@
 import React from 'react';
-import CharacterSidebar from '../components/character-sidebar'
+import CharacterSidebar from '../../components/character-sidebar'
 import { shallow } from 'enzyme'
-import '../configure-tests'
+import './configure-tests'
 
 describe('<CharacterSidebar /> Component', function() {
   it('Smoke test for Character Creator', () => {

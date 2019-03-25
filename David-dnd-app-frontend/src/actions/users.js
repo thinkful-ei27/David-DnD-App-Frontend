@@ -1,6 +1,6 @@
 import {SubmissionError} from 'redux-form';
 
-import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../test/components/config';
 import {normalizeResponseErrors} from './utils';
 
 export const registerUser = user => dispatch => {

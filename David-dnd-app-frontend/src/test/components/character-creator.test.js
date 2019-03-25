@@ -1,7 +1,7 @@
 import React from 'react';
-import CharacterCreator from '../components/character-creator'
+import CharacterCreator from '../../components/character-creator'
 import { shallow } from 'enzyme'
-import '../configure-tests'
+import './configure-tests'
 
 describe('<CharacterCreator /> Component', function() {
   it('Smoke test for Character Creator', () => {
