@@ -2,8 +2,8 @@
   "name": "dnd-project-frontend",
   "version": "0.1.0",
   "private": true,
-  "engines" :{
-    "node" : "10.14.2"
+  "engines": {
+    "node": "10.14.2"
   },
   "dependencies": {
     "jwt-decode": "^2.2.0",
