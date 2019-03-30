@@ -6,6 +6,4 @@ You can create a character by simply  providing a name, choosing a race (random 
 You may edit the stats with the edit character button.
 You may also delete the characters by clicking the delete button.
 
-![screen-shot](screen-shot.png)
-
-
+![screen-shot](ScreenShot.png)
