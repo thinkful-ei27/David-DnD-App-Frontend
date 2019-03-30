@@ -20,6 +20,9 @@ export function LandingPage(props) {
           this website saves your characters to your login allowing you to access,
           update, or create new characters from anywhere!
         </h2>
+      <h3>If you don't want to create a new user, checkout the app with a test user! <br></br>
+      <strong>Username: </strong>Test <br></br>
+      <strong>Password: </strong>TestTester</h3>
       </div>
       <div className="login-box">
         <Link to="/login" id="login-link">Login</Link> <br/>
